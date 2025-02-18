@@ -1,0 +1,24 @@
+@model List<KubernetesApi.Web.Models.ServiceViewModel>
+
+<h2>Services</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Namespace</th>
+            <th>Cluster IP</th>
+            <th>Ports</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.Name</td>
+                <td>@service.Namespace</td>
+                <td>@service.ClusterIP</td>
+                <td>@string.Join(", ", service.Ports)</td>
+            </tr>
+        }
+    </tbody>
+</table>
